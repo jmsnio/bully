@@ -28,7 +28,6 @@ function loadSongs() {
   songs.forEach((song, index) => {
     const div = document.createElement("div");
     div.classList.add("song");
-
     div.innerText = (index + 1) + ". " + song.title;
 
     div.onclick = () => {
@@ -85,8 +84,10 @@ function prevSong() {
   playSong();
 }
 
+/* AUTO NEXT */
 audio.addEventListener("ended", nextSong);
 
+/* SMOOTH PROGRESS */
 function startProgressLoop() {
   if (isUpdating) return;
   isUpdating = true;
@@ -104,10 +105,12 @@ function startProgressLoop() {
   requestAnimationFrame(update);
 }
 
+/* SEEK */
 progress.addEventListener("input", () => {
   audio.currentTime = (progress.value / 100) * audio.duration;
 });
 
+/* VOLUME */
 volume.addEventListener("input", () => {
   audio.volume = volume.value;
 });
