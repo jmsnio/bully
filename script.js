@@ -29,30 +29,12 @@ function loadSongs() {
     const div = document.createElement("div");
     div.classList.add("song");
 
-    // LEFT SIDE (song name)
-    const name = document.createElement("span");
-    name.innerText = (index + 1) + ". " + song.title;
+    div.innerText = (index + 1) + ". " + song.title;
 
-    // RIGHT SIDE (download button)
-    const download = document.createElement("a");
-    download.href = song.src;
-    download.setAttribute("download", "");
-    download.innerText = "⬇";
-    download.classList.add("download-btn");
-
-    // play on click
     div.onclick = () => {
       currentSong = index;
       playSong();
     };
-
-    // prevent download click from playing song
-    download.onclick = (e) => {
-      e.stopPropagation();
-    };
-
-    div.appendChild(name);
-    div.appendChild(download);
 
     playlist.appendChild(div);
   });
