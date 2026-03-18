@@ -28,12 +28,32 @@ function loadSongs() {
   songs.forEach((song, index) => {
     const div = document.createElement("div");
     div.classList.add("song");
-    div.innerText = (index + 1) + ". " + song.title;
 
+    // song name
+    const name = document.createElement("span");
+    name.innerText = (index + 1) + ". " + song.title;
+
+    // download button
+    const download = document.createElement("a");
+    download.href = song.src;
+    download.setAttribute("download", "");
+    download.innerText = "⬇";
+    download.style.marginLeft = "10px";
+    download.style.cursor = "pointer";
+
+    // play on click (but not download button)
     div.onclick = () => {
       currentSong = index;
       playSong();
     };
+
+    // stop click from triggering play
+    download.onclick = (e) => {
+      e.stopPropagation();
+    };
+
+    div.appendChild(name);
+    div.appendChild(download);
 
     playlist.appendChild(div);
   });
@@ -84,10 +104,8 @@ function prevSong() {
   playSong();
 }
 
-/* AUTO NEXT */
 audio.addEventListener("ended", nextSong);
 
-/* SMOOTH PROGRESS */
 function startProgressLoop() {
   if (isUpdating) return;
   isUpdating = true;
@@ -105,12 +123,10 @@ function startProgressLoop() {
   requestAnimationFrame(update);
 }
 
-/* SEEK */
 progress.addEventListener("input", () => {
   audio.currentTime = (progress.value / 100) * audio.duration;
 });
 
-/* VOLUME */
 volume.addEventListener("input", () => {
   audio.volume = volume.value;
 });
