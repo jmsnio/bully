@@ -1,23 +1,23 @@
 const songs = [
-  { title: "KING", src: "music/king.mp3" },
-  { title: "THIS A MUST", src: "music/this-a-must.mp3" },
-  { title: "FATHER (feat. Travis Scott)", src: "music/father.mp3" },
-  { title: "ALL THE LOVE (feat. Andre Troutman)", src: "music/all-the-love.mp3" },
-  { title: "PUNCH DRUNK", src: "music/punch-drunk.mp3" },
-  { title: "WHATEVER WORKS", src: "music/whatever-works.mp3" },
-  { title: "MAMA'S FAVORITE", src: "music/mamas-favorite.mp3" },
-  { title: "SISTERS AND BROTHERS", src: "music/sisters-and-brothers.mp3" },
-  { title: "BULLY (feat. CeeLo Green)", src: "music/bully.mp3" },
+  { title: "KING", src: "music/KING_spotdown.org.mp3" },
+  { title: "THIS A MUST", src: "music/THIS A MUST_spotdown.org.mp3" },
+  { title: "FATHER (feat. Travis Scott)", src: "music/FATHER (feat. Travis Scott)_spotdown.org.mp3" },
+  { title: "ALL THE LOVE (feat. Andre Troutman)", src: "music/ALL THE LOVE (feat. Andre Troutman)_spotdown.org.mp3" },
+  { title: "PUNCH DRUNK", src: "music/PUNCH DRUNK_spotdown.org.mp3" },
+  { title: "WHATEVER WORKS", src: "music/WHATEVER WORKS_spotdown.org.mp3" },
+  { title: "MAMA'S FAVORITE", src: "music/MAMA’S FAVORITE_spotdown.org.mp3" },
+  { title: "SISTERS AND BROTHERS", src: "music/SISTERS AND BROTHERS_spotdown.org.mp3" },
+  { title: "BULLY (feat. CeeLo Green)", src: "music/BULLY (feat. CeeLo Green)_spotdown.org.mp3" },
 
-  { title: "HIGHS AND LOWS", src: "music/highs-and-lows.mp3" },
-  { title: "I CAN'T WAIT", src: "music/i-cant-wait.mp3" },
-  { title: "WHITE LINES (feat. Andre Troutman)", src: "music/white-lines.mp3" },
-  { title: "CIRCLES", src: "music/circles.mp3" },
-  { title: "PREACHER MAN", src: "music/preacher-man.mp3" },
-  { title: "BEAUTY AND THE BEAST", src: "music/beauty-and-the-beast.mp3" },
-  { title: "DAMN", src: "music/damn.mp3" },
-  { title: "LAST BREATH (feat. Peso Pluma)", src: "music/last-breath.mp3" },
-  { title: "THIS ONE HERE", src: "music/this-one-here.mp3" }
+  { title: "HIGHS AND LOWS", src: "music/HIGHS AND LOWS_spotdown.org.mp3" },
+  { title: "I CAN'T WAIT", src: "music/I CAN’T WAIT_spotdown.org.mp3" },
+  { title: "WHITE LINES (feat. Andre Troutman)", src: "music/WHITE LINES (feat. Andre Troutman)_spotdown.org.mp3" },
+  { title: "CIRCLES", src: "music/CIRCLES.mp3" },
+  { title: "PREACHER MAN", src: "music/PREACHER MAN.mp3" },
+  { title: "BEAUTY AND THE BEAST", src: "music/BEAUTY AND THE BEAST.mp3" },
+  { title: "DAMN", src: "music/DAMN.mp3" },
+  { title: "LAST BREATH (feat. Peso Pluma)", src: "music/LAST BREATH (feat. Peso Pluma)_spotdown.org.mp3" },
+  { title: "THIS ONE HERE", src: "music/THIS ONE HERE_spotdown.org.mp3" }
 ];
 
 let currentSong = 0;
