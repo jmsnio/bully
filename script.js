@@ -20,23 +20,21 @@ const songs = [
   { title: "THIS ONE HERE", src: "music/THIS ONE HERE_spotdown.org.mp3" }
 ];
 
-
 let currentSong = 0;
 let isUpdating = false;
 
 const audio = document.getElementById("audio");
 const playlist = document.getElementById("playlist");
 const progress = document.getElementById("progress");
+const volume = document.getElementById("volume");
 const playBtn = document.getElementById("playBtn");
-const playBtn2 = document.getElementById("playBtn2");
 const titleDisplay = document.getElementById("title");
-const fullscreenTitle = document.getElementById("fullscreenTitle");
-const fullscreenPlayer = document.getElementById("fullscreenPlayer");
 
 function loadSongs() {
   songs.forEach((song, index) => {
     const div = document.createElement("div");
     div.classList.add("song");
+
     div.innerText = (index + 1) + ". " + song.title;
 
     div.onclick = () => {
@@ -49,34 +47,37 @@ function loadSongs() {
 }
 
 function updateActiveSong() {
-  document.querySelectorAll(".song").forEach(s => s.classList.remove("active"));
-  document.querySelectorAll(".song")[currentSong].classList.add("active");
+  const allSongs = document.querySelectorAll(".song");
+  allSongs.forEach(s => s.classList.remove("active"));
+  allSongs[currentSong].classList.add("active");
 }
 
 function playSong() {
   const song = songs[currentSong];
 
   audio.src = song.src;
+  audio.currentTime = 0;
+  progress.value = 0;
+
   audio.play();
 
-  titleDisplay.innerText = song.title + " ⬆";
-  fullscreenTitle.innerText = song.title;
-
+  titleDisplay.innerText = song.title;
   playBtn.innerText = "⏸";
-  playBtn2.innerText = "⏸";
 
   updateActiveSong();
+
+  isUpdating = false;
+  startProgressLoop();
 }
 
 function playPause() {
   if (audio.paused) {
     audio.play();
     playBtn.innerText = "⏸";
-    playBtn2.innerText = "⏸";
+    startProgressLoop();
   } else {
     audio.pause();
     playBtn.innerText = "▶";
-    playBtn2.innerText = "▶";
   }
 }
 
@@ -90,13 +91,39 @@ function prevSong() {
   playSong();
 }
 
-/* FULLSCREEN */
-function openFullscreen() {
-  fullscreenPlayer.style.display = "flex";
+audio.addEventListener("ended", nextSong);
+
+function startProgressLoop() {
+  if (isUpdating) return;
+  isUpdating = true;
+
+  function update() {
+    if (!audio.paused && audio.duration) {
+      progress.value = (audio.currentTime / audio.duration) * 100;
+
+      document.getElementById("current").innerText = formatTime(audio.currentTime);
+      document.getElementById("duration").innerText = formatTime(audio.duration);
+    }
+    requestAnimationFrame(update);
+  }
+
+  requestAnimationFrame(update);
 }
 
-function closeFullscreen() {
-  fullscreenPlayer.style.display = "none";
+progress.addEventListener("input", () => {
+  audio.currentTime = (progress.value / 100) * audio.duration;
+});
+
+volume.addEventListener("input", () => {
+  audio.volume = volume.value;
+});
+
+function formatTime(time) {
+  if (isNaN(time)) return "0:00";
+  let min = Math.floor(time / 60);
+  let sec = Math.floor(time % 60);
+  if (sec < 10) sec = "0" + sec;
+  return min + ":" + sec;
 }
 
 loadSongs();
