@@ -44,14 +44,15 @@ body {
   margin-bottom: 20px;
 }
 
-/* RIGHT (2 COLUMN GRID 🔥) */
+/* RIGHT (COLUMN FLOW FIX 🔥) */
 .right {
   width: 70%;
   padding-left: 120px;
 
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  column-gap: 40px;
+  grid-template-rows: repeat(9, auto);
+  grid-auto-flow: column;
+  column-gap: 60px;
 }
 
 /* SONG */
@@ -62,7 +63,6 @@ body {
   cursor: pointer;
   font-size: 18px;
   transition: all 0.3s ease;
-  width: 100%;
 }
 
 .song:hover {
@@ -88,7 +88,7 @@ body {
   text-align: center;
 }
 
-/* NOW PLAYING TEXT */
+/* NOW PLAYING */
 .now-playing {
   font-size: 16px;
   margin-bottom: 5px;
@@ -108,7 +108,7 @@ body {
   transform: scale(1.2);
 }
 
-/* PROGRESS BAR */
+/* PROGRESS */
 #progress {
   width: 80%;
   margin-top: 10px;
