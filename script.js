@@ -1,17 +1,23 @@
 const songs = [
-  { title: "PREACHER MAN", src: "music/bully-preacher-man.mp3" },
-  { title: "BEAUTY AND THE BEAST", src: "music/bully-beauty-and-the-beast.mp3" },
-  { title: "LAST BREATH", src: "music/bully-last-breath.mp3" },
-  { title: "WHITE LINES", src: "music/bully-white-lines.mp3" },
-  { title: "I CAN'T WAIT", src: "music/bully-i-cant-wait.mp3" },
-  { title: "BULLY", src: "music/bully-bully.mp3" },
-  { title: "ALL THE LOVE", src: "music/bully-all-the-love.mp3" },
-  { title: "THIS ONE HERE", src: "music/bully-this-one-here.mp3" },
-  { title: "HIGHS AND LOWS", src: "music/bully-highs-and-lows.mp3" },
-  { title: "MISSION CONTROL", src: "music/bully-mission-control.mp3" },
-  { title: "CIRCLES", src: "music/bully-circles.mp3" },
-  { title: "DAMN", src: "music/bully-damn.mp3" },
-  { title: "LOSING YOUR MIND", src: "music/bully-losing-your-mind.mp3" }
+  { title: "KING", src: "music/king.mp3" },
+  { title: "THIS A MUST", src: "music/this-a-must.mp3" },
+  { title: "FATHER (feat. Travis Scott)", src: "music/father.mp3" },
+  { title: "ALL THE LOVE (feat. Andre Troutman)", src: "music/all-the-love.mp3" },
+  { title: "PUNCH DRUNK", src: "music/punch-drunk.mp3" },
+  { title: "WHATEVER WORKS", src: "music/whatever-works.mp3" },
+  { title: "MAMA'S FAVORITE", src: "music/mamas-favorite.mp3" },
+  { title: "SISTERS AND BROTHERS", src: "music/sisters-and-brothers.mp3" },
+  { title: "BULLY (feat. CeeLo Green)", src: "music/bully.mp3" },
+
+  { title: "HIGHS AND LOWS", src: "music/highs-and-lows.mp3" },
+  { title: "I CAN'T WAIT", src: "music/i-cant-wait.mp3" },
+  { title: "WHITE LINES (feat. Andre Troutman)", src: "music/white-lines.mp3" },
+  { title: "CIRCLES", src: "music/circles.mp3" },
+  { title: "PREACHER MAN", src: "music/preacher-man.mp3" },
+  { title: "BEAUTY AND THE BEAST", src: "music/beauty-and-the-beast.mp3" },
+  { title: "DAMN", src: "music/damn.mp3" },
+  { title: "LAST BREATH (feat. Peso Pluma)", src: "music/last-breath.mp3" },
+  { title: "THIS ONE HERE", src: "music/this-one-here.mp3" }
 ];
 
 let currentSong = 0;
@@ -28,6 +34,7 @@ function loadSongs() {
   songs.forEach((song, index) => {
     const div = document.createElement("div");
     div.classList.add("song");
+
     div.innerText = (index + 1) + ". " + song.title;
 
     div.onclick = () => {
@@ -84,10 +91,8 @@ function prevSong() {
   playSong();
 }
 
-/* AUTO NEXT */
 audio.addEventListener("ended", nextSong);
 
-/* SMOOTH PROGRESS */
 function startProgressLoop() {
   if (isUpdating) return;
   isUpdating = true;
@@ -105,12 +110,10 @@ function startProgressLoop() {
   requestAnimationFrame(update);
 }
 
-/* SEEK */
 progress.addEventListener("input", () => {
   audio.currentTime = (progress.value / 100) * audio.duration;
 });
 
-/* VOLUME */
 volume.addEventListener("input", () => {
   audio.volume = volume.value;
 });
