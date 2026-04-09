@@ -44,7 +44,22 @@ body {
   margin-bottom: 20px;
 }
 
-/* RIGHT (COLUMN FLOW FIX 🔥) */
+/* STREAM LINK 🔥 */
+.stream-link {
+  color: white;
+  text-decoration: underline;
+  font-weight: bold;
+  display: inline-block;
+  margin-top: 10px;
+  transition: all 0.25s ease;
+}
+
+.stream-link:hover {
+  opacity: 0.7;
+  transform: scale(1.05);
+}
+
+/* RIGHT (COLUMN FLOW) */
 .right {
   width: 70%;
   padding-left: 120px;
