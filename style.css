@@ -44,7 +44,7 @@ body {
   margin-bottom: 20px;
 }
 
-/* STREAM LINK 🔥 */
+/* STREAM LINK */
 .stream-link {
   color: white;
   text-decoration: underline;
@@ -59,7 +59,7 @@ body {
   transform: scale(1.05);
 }
 
-/* RIGHT (COLUMN FLOW) */
+/* RIGHT (DESKTOP GRID) */
 .right {
   width: 70%;
   padding-left: 120px;
@@ -171,4 +171,56 @@ body {
   height: 10px;
   background: white;
   border-radius: 50%;
+}
+
+/* 📱 MOBILE VERSION */
+@media (max-width: 768px) {
+
+  .container {
+    flex-direction: column;
+    padding: 20px;
+    align-items: center;
+  }
+
+  .left {
+    width: 100%;
+    text-align: center;
+  }
+
+  .cover {
+    width: 250px;
+  }
+
+  .right {
+    width: 100%;
+    padding-left: 0;
+    margin-top: 20px;
+
+    display: grid;
+    grid-template-columns: 1fr; /* ONE COLUMN */
+    row-gap: 10px;
+  }
+
+  .song {
+    font-size: 16px;
+    text-align: left;
+  }
+
+  .player {
+    padding: 10px;
+  }
+
+  #progress {
+    width: 90%;
+  }
+
+  .time {
+    width: 90%;
+  }
+
+  .volume-container {
+    position: static;
+    justify-content: center;
+    margin-top: 10px;
+  }
 }
