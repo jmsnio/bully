@@ -3,9 +3,12 @@
 <head>
   <title>BULLY</title>
 
+  <!-- MOBILE FIX -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <!-- TAB ICON -->
   <link rel="icon" type="image/png" href="images/bully-cover.png">
+
   <link rel="stylesheet" href="style.css">
 </head>
 
@@ -36,9 +39,8 @@
 
 <div class="player fade-in">
 
-  <!-- 🔽 CLICK TO OPEN FULL PLAYER -->
-  <div class="now-playing" id="title" onclick="openFullscreen()">
-    Select a song ⬆
+  <div class="now-playing" id="title">
+    Select a song
   </div>
 
   <div class="controls">
@@ -54,23 +56,9 @@
     <span id="duration">0:00</span>
   </div>
 
-</div>
-
-<!-- 🔥 FULLSCREEN PLAYER -->
-<div class="fullscreen-player" id="fullscreenPlayer">
-
-  <div class="fullscreen-header">
-    <span onclick="closeFullscreen()">⬇</span>
-  </div>
-
-  <img src="images/bully-cover.png" class="fullscreen-cover">
-
-  <h2 id="fullscreenTitle">Select a song</h2>
-
-  <div class="fullscreen-controls">
-    <button onclick="prevSong()">⏮</button>
-    <button onclick="playPause()" id="playBtn2">▶</button>
-    <button onclick="nextSong()">⏭</button>
+  <div class="volume-container">
+    🔊
+    <input type="range" id="volume" min="0" max="1" step="0.01" value="1">
   </div>
 
 </div>
